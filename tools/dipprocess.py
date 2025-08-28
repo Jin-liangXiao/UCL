@@ -220,6 +220,7 @@ def test_dip(lrms,pan,gt,sensor):
 
 
     p =  [x for x in att_pan_model.parameters()]
+    p = p + [x for x in model.parameters()]
     optimizer = torch.optim.Adam(p, lr=LR)
 
 
