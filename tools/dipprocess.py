@@ -7,7 +7,7 @@ from tools.spectral_tools import gen_mtf
 from models.mlp import Gamma_net
 from tools.psf2otf import *
 from tools.coeffnet import *
-from coregistration import *
+from tools.coregistration import *
 from models.myunet import skip
 import torch.backends.cudnn as cudnn
 
