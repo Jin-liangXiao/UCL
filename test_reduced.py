@@ -36,15 +36,15 @@ def load_set(file_path):
 
 def test(file_path):
     lms, pan, test_gt = load_set(file_path)
-    sensor='WV3'
+    sensor='QB'
     x1, x2 = lms, pan   # read data: CxHxW (numpy type)
     num_exm = x1.shape[0]
     results=np.zeros(test_gt.permute(0,2,3,1).shape)
     psnr_list=np.zeros([20,1])
     time_start = time.time()
     for index in range(num_exm):  # save the LightNet results for matlab evaluate code
-        file_name = "proposed_reduced_wv3.mat"
-        directory_name = "./results/WV3/"
+        file_name = "proposed_reduced_QB.mat"
+        directory_name = "./results/QB/"
         print('data index={:.3f}'.format(index))
         x1_1=x1[index, :, :, :]
         x2_1=x2[index, :, :, :]
@@ -71,5 +71,5 @@ def test(file_path):
 ###################################################################
 if __name__ == '__main__':
 
-    file_path = "./dataset/test_wv3_multiExm1.h5"
+    file_path = "./dataset/test_qb_multiExm1.h5"
     test(file_path)
