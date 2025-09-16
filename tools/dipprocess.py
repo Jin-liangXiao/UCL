@@ -262,8 +262,8 @@ def test_dip(lrms,pan,gt,sensor):
     fp = (fp * p_3d_torch).cpu().numpy().squeeze()
     c=0
     BLUR=BLU(gen_mtf(ratio, sensor),ratio,device).type(dtype).to(device)
-    for q in {1}:#range(1,4): please adjust the parameter for better perofrmance
-        for w in {2}:#range(1,6): please adjust the parameter for better perofrmance
+    for q in {3}:#range(1,4): please adjust the parameter for better perofrmance
+        for w in {3}:#range(1,6): please adjust the parameter for better perofrmance
             lambda_1 = 10**(-q)
             eta = 10**(-w)
 
