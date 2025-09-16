@@ -189,7 +189,7 @@ def test_dip(lrms,pan,gt,sensor):
     # ====================================
     lam, mu = 100,0.001
     net_iter = 8000
-    LR = 0.1
+    LR = 0.01
 
 
 
