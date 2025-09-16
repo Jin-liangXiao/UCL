@@ -14,18 +14,18 @@ def load_set(file_path):
     # tensor type:
     lms1 = data['ms'][...]  # NxCxHxW = 4x8x512x512
     print(lms1.shape)
-    lms1 = np.array(lms1, dtype=np.float32) /1023.0# 2047.0
+    lms1 = np.array(lms1, dtype=np.float32) /2047.0# 1023.0
     lms = torch.from_numpy(lms1)  # NxCxHxW  or HxWxC
     print(lms.shape)
 
     pan1 = data['pan'][...]   # NxCxHxW = 4x8x512x512
-    pan1 = np.array(pan1, dtype=np.float32) / 1023.0# 2047.0
+    pan1 = np.array(pan1, dtype=np.float32) / 2047.0# 1023.0
     pan = torch.from_numpy(pan1)
     print(pan.shape)
 
     gt = data['gt'][...]  # NxCxHxW = 4x8x512x512
     print(gt.shape)
-    gt = np.array(gt, dtype=np.float32) /1023.0# 2047.0
+    gt = np.array(gt, dtype=np.float32) /2047.0# 1023.0
     gt = torch.from_numpy(gt)  # NxCxHxW  or HxWxC
     print(gt.shape)
 
@@ -36,15 +36,15 @@ def load_set(file_path):
 
 def test(file_path):
     lms, pan, test_gt = load_set(file_path)
-    sensor='none'
+    sensor='WV3'
     x1, x2 = lms, pan   # read data: CxHxW (numpy type)
     num_exm = x1.shape[0]
     results=np.zeros(test_gt.permute(0,2,3,1).shape)
     psnr_list=np.zeros([20,1])
     time_start = time.time()
     for index in range(num_exm):  # save the LightNet results for matlab evaluate code
-        file_name = "proposed_reduced_gf2.mat"
-        directory_name = "./results/GF/"
+        file_name = "proposed_reduced_wv3.mat"
+        directory_name = "./results/WV3/"
         print('data index={:.3f}'.format(index))
         x1_1=x1[index, :, :, :]
         x2_1=x2[index, :, :, :]
@@ -71,5 +71,5 @@ def test(file_path):
 ###################################################################
 if __name__ == '__main__':
 
-    file_path = "./dataset/test_gf2_multiExm1.h5"
+    file_path = "./dataset/test_wv3_multiExm1.h5"
     test(file_path)
