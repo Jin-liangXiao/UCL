@@ -5,6 +5,7 @@ code of "Unsupervised Coefficient Learning Framework for Variational Pansharpeni
 ```bibtex
 @article{XIAO2026103790,
 title = {Unsupervised coefficient learning framework for variational pansharpening},
+author = {Jin-Liang Xiao and Ting-Zhu Huang and Liang-Jian Deng and Huidong Jiang and Qibin Zhao and Gemine Vivone},
 journal = {Information Fusion},
 volume = {127},
 pages = {103790},
